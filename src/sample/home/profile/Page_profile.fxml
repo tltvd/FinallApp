@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" stylesheets="@../../Style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.home.profile.Page_profile_controller">
+   <children>
+      <Button fx:id="btn_cancel" layoutX="100.0" layoutY="563.0" mnemonicParsing="false" onAction="#initialize" prefHeight="50.0" prefWidth="300.0" text="Cancel" textFill="WHITE">
+         <font>
+            <Font name="Nirmala UI Bold" size="20.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" layoutX="531.0" layoutY="50.0" minHeight="-Infinity" prefHeight="50.0" prefWidth="446.0" text="Change password" textFill="WHITE" wrapText="true" AnchorPane.rightAnchor="22.600000000000023">
+         <font>
+            <Font name="Nirmala UI Bold" size="35.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="field_newPassword" layoutX="600.0" layoutY="211.0" prefHeight="70.0" prefWidth="350.0" promptText="New Password">
+         <font>
+            <Font name="Nirmala UI Bold" size="15.0" />
+         </font>
+      </PasswordField>
+      <PasswordField fx:id="field_oldPassword" layoutX="600.0" layoutY="121.0" prefHeight="70.0" prefWidth="350.0" promptText="Old Password">
+         <font>
+            <Font name="Nirmala UI Bold" size="15.0" />
+         </font>
+      </PasswordField>
+      <Label alignment="CENTER" layoutX="51.0" layoutY="50.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="430.0" text="Your account information" textFill="WHITE" AnchorPane.leftAnchor="51.0" AnchorPane.topAnchor="50.0">
+         <font>
+            <Font name="Nirmala UI Bold" size="35.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_change" layoutX="600.0" layoutY="563.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="308.0" text="Change" textFill="WHITE">
+         <font>
+            <Font name="Nirmala UI Bold" size="20.0" />
+         </font>
+      </Button>
+      <HBox layoutX="75.0" layoutY="121.0" prefHeight="50.0" prefWidth="445.0">
+         <children>
+            <Label minWidth="-Infinity" prefHeight="51.0" prefWidth="200.0" styleClass="label2" text="Username: " textFill="WHITE">
+               <font>
+                  <Font name="Nirmala UI" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_username" minWidth="-Infinity" prefHeight="50.0" prefWidth="245.0" styleClass="label3" text="Username" textFill="WHITE">
+               <font>
+                  <Font name="Nirmala UI" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox layoutX="75.0" layoutY="171.0" prefHeight="51.0" prefWidth="446.0">
+         <children>
+            <Label minWidth="-Infinity" prefHeight="51.0" prefWidth="200.0" styleClass="label2" text="Last name: " textFill="WHITE">
+               <font>
+                  <Font name="Nirmala UI" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_lastName" minWidth="-Infinity" prefHeight="50.0" prefWidth="245.0" styleClass="label3" text="Last name " textFill="WHITE">
+               <font>
+                  <Font name="Nirmala UI" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox layoutX="75.0" layoutY="221.0" prefHeight="51.0" prefWidth="446.0">
+         <children>
+            <Label minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="label2" text="First name: " textFill="WHITE">
+               <font>
+                  <Font name="Nirmala UI" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_firstName" minWidth="-Infinity" prefHeight="50.0" prefWidth="245.0" styleClass="label3" text="First name" textFill="WHITE">
+               <font>
+                  <Font name="Nirmala UI" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox layoutX="75.0" layoutY="271.0" prefHeight="51.0" prefWidth="446.0">
+         <children>
+            <Label minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="label2" text="City:" textFill="WHITE">
+               <font>
+                  <Font name="Nirmala UI" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_city" minWidth="-Infinity" prefHeight="50.0" prefWidth="245.0" styleClass="label3" text="City" textFill="WHITE">
+               <font>
+                  <Font name="Nirmala UI" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox layoutX="75.0" layoutY="325.0" prefHeight="51.0" prefWidth="446.0">
+         <children>
+            <Label minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="label2" text="Phone:" textFill="WHITE">
+               <font>
+                  <Font name="Nirmala UI Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_phoneNumber" minWidth="-Infinity" prefHeight="50.0" prefWidth="245.0" styleClass="label3" text="Phone number" textFill="WHITE">
+               <font>
+                  <Font name="Nirmala UI" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox layoutX="75.0" layoutY="385.0" prefHeight="51.0" prefWidth="446.0">
+         <children>
+            <Label fx:id="label_email" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" styleClass="label2" text="Email:" textFill="WHITE">
+               <font>
+                  <Font name="Nirmala UI Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_email" minWidth="-Infinity" prefHeight="50.0" prefWidth="245.0" styleClass="label3" text="Email" textFill="WHITE">
+               <font>
+                  <Font name="Nirmala UI" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

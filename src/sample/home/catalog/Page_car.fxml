@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" stylesheets="@../../Style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.home.catalog.Page_car_controller">
+   <children>
+      <Button fx:id="btn_back" layoutX="25.0" layoutY="14.0" mnemonicParsing="false" onAction="#initialize" prefHeight="40.0" prefWidth="150.0" text="Back" />
+      <Label layoutX="394.0" layoutY="14.0" prefHeight="74.0" prefWidth="249.0" text="Mercedes">
+         <font>
+            <Font name="Nirmala UI" size="50.0" />
+         </font>
+      </Label>
+      <ScrollPane layoutY="91.0" prefHeight="600.0" prefWidth="1000.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1250.0" prefWidth="1000.0" styleClass="anchor">
+               <children>
+                  <ImageView fx:id="model_image_1" fitHeight="341.0" fitWidth="459.0" layoutX="51.0" layoutY="42.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../../content/mercedes/S63/1.jpg" />
+                     </image>
+                  </ImageView>
+                  <HBox layoutX="529.0" layoutY="29.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="425.0">
+                     <children>
+                        <Label prefHeight="102.0" prefWidth="200.0" styleClass="label2" text="Model:">
+                           <font>
+                              <Font name="Nirmala UI Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="model" minHeight="-Infinity" prefHeight="100.0" prefWidth="215.0" styleClass="label3" wrapText="true">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="529.0" layoutY="113.0" prefHeight="100.0" prefWidth="425.0">
+                     <children>
+                        <Label prefHeight="102.0" prefWidth="200.0" styleClass="label2" text="Price:">
+                           <font>
+                              <Font name="Nirmala UI" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="price" minHeight="-Infinity" prefHeight="100.0" prefWidth="215.0" styleClass="label3" wrapText="true">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Button fx:id="btn_buy" layoutX="568.0" layoutY="300.0" mnemonicParsing="false" onAction="#initialize" prefHeight="82.0" prefWidth="346.0" text="Buy" />
+                  <HBox layoutX="529.0" layoutY="185.0" prefHeight="100.0" prefWidth="425.0">
+                     <children>
+                        <Label prefHeight="100.0" prefWidth="200.0" styleClass="label2" text="Body type:">
+                           <font>
+                              <Font name="Nirmala UI" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="body_type" minHeight="-Infinity" prefHeight="100.0" prefWidth="215.0" styleClass="label3" wrapText="true">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <AnchorPane layoutX="165.0" layoutY="473.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="686.0" prefWidth="700.0" style="-fx-background-color: #141414; -fx-background-radius: 30;">
+                     <children>
+                        <Label layoutX="154.0" layoutY="14.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="370.0" styleClass="label2" text="Vehicle Parameters:" AnchorPane.leftAnchor="165.0" AnchorPane.rightAnchor="164.60000000000002">
+                           <font>
+                              <Font size="35.0" />
+                           </font>
+                        </Label>
+                        <VBox layoutX="37.0" layoutY="74.0" prefHeight="610.0" prefWidth="600.0">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="600.0">
+                                 <children>
+                                    <Label minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="340.0" styleClass="label2" text="Engine Volume:" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font name="Nirmala UI" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="volume" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="285.0" styleClass="label3" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font size="25.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="600.0">
+                                 <children>
+                                    <Label alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="340.0" styleClass="label2" text="HP:" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Nirmala UI" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="hp" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="285.0" styleClass="label3" wrapText="true">
+                                       <font>
+                                          <Font size="25.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="600.0">
+                                 <children>
+                                    <Label minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="340.0" styleClass="label2" text="Drive type:">
+                                       <font>
+                                          <Font name="Nirmala UI" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="drive_type" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="285.0" styleClass="label3" wrapText="true">
+                                       <font>
+                                          <Font size="25.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="600.0">
+                                 <children>
+                                    <Label minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="340.0" styleClass="label2" text="Fuel type:" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Nirmala UI" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="fuel_type" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="285.0" styleClass="label3" wrapText="true">
+                                       <font>
+                                          <Font size="25.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="400.0">
+                                 <children>
+                                    <Label minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="340.0" styleClass="label2" text="Fuel Consumption:" wrapText="true">
+                                       <font>
+                                          <Font name="Nirmala UI" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="fuel" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="285.0" styleClass="label3" wrapText="true">
+                                       <font>
+                                          <Font size="25.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="105.0" prefWidth="600.0">
+                                 <children>
+                                    <Label minHeight="-Infinity" minWidth="-Infinity" prefHeight="105.0" prefWidth="340.0" styleClass="label2" text="0-100 km/h Acceleration time:" textAlignment="CENTER" wrapText="true">
+                                       <font>
+                                          <Font name="Nirmala UI" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="time" minHeight="-Infinity" minWidth="-Infinity" prefHeight="105.0" prefWidth="285.0" styleClass="label3" wrapText="true">
+                                       <font>
+                                          <Font size="25.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                     <effect>
+                        <DropShadow height="120.0" radius="59.5" spread="0.59" width="120.0" />
+                     </effect>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

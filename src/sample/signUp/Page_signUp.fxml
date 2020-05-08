@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" stylesheets="@../Style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.signUp.Page_signUp_Controller">
+   <children>
+      <Label alignment="CENTER" layoutX="514.0" layoutY="39.0" prefHeight="55.0" prefWidth="290.0" text="Let's Get Strated" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="360.0" AnchorPane.rightAnchor="360.0">
+         <font>
+            <Font name="Nirmala UI" size="38.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="password_textfield" alignment="CENTER" layoutX="325.0" layoutY="350.0" prefHeight="46.0" prefWidth="350.0" promptText="Password" AnchorPane.leftAnchor="325.0" AnchorPane.rightAnchor="325.0">
+         <font>
+            <Font name="Nirmala UI" size="20.0" />
+         </font></PasswordField>
+      <Button fx:id="register_button" layoutX="550.0" layoutY="510.0" mnemonicParsing="false" onAction="#initialize" prefHeight="46.0" prefWidth="350.0" text="Register" textFill="WHITE" AnchorPane.rightAnchor="125.0">
+         <font>
+            <Font name="Nirmala UI Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="cancel_button" layoutX="125.0" layoutY="510.0" mnemonicParsing="false" onAction="#initialize" prefHeight="46.0" prefWidth="350.0" text="Cancel" textFill="WHITE" AnchorPane.leftAnchor="125.0">
+         <font>
+            <Font name="Nirmala UI Bold" size="20.0" />
+         </font>
+      </Button>
+      <TextField fx:id="username_textfield" alignment="CENTER" layoutX="524.0" layoutY="216.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="350.0" promptText="Username" AnchorPane.rightAnchor="125.60000000000002">
+         <font>
+            <Font name="Nirmala UI" size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="email_textfield" alignment="CENTER" layoutX="125.0" layoutY="216.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="350.0" promptText="Email" AnchorPane.leftAnchor="125.0">
+         <font>
+            <Font name="Nirmala UI" size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="number_textfield" alignment="CENTER" layoutX="125.0" layoutY="285.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="350.0" promptText="Contact Number" AnchorPane.leftAnchor="125.0">
+         <font>
+            <Font name="Nirmala UI" size="20.0" />
+         </font>
+      </TextField>
+      <RadioButton fx:id="male_rad_button" layoutX="533.0" layoutY="414.0" mnemonicParsing="false" prefHeight="45.0" text="Male" textFill="WHITE">
+         <font>
+            <Font name="Nirmala UI" size="20.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="Gender" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="female_rad_button" layoutX="400.0" layoutY="414.0" mnemonicParsing="false" prefHeight="45.0" text="Female" textFill="WHITE" toggleGroup="$Gender">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </RadioButton>
+      <TextField fx:id="firstname_textfield" alignment="CENTER" layoutX="75.0" layoutY="150.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="350.0" promptText="First name" AnchorPane.leftAnchor="125.0">
+         <font>
+            <Font name="Nirmala UI" size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="lastname_textfield" alignment="CENTER" layoutX="524.0" layoutY="150.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="350.0" promptText="Last name" AnchorPane.rightAnchor="125.60000000000002">
+         <font>
+            <Font name="Nirmala UI" size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="city_textfield" alignment="CENTER" layoutX="600.0" layoutY="285.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="350.0" promptText="City" AnchorPane.rightAnchor="125.0">
+         <font>
+            <Font name="Nirmala UI" size="20.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>

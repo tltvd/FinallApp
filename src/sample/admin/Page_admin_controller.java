@@ -3,7 +3,7 @@ package sample.admin;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -33,17 +33,25 @@ public class Page_admin_controller {
 
     @FXML
     void initialize() {
-    }
-
-    public void handleClicks(ActionEvent actionEvent){
-        if (actionEvent.getSource()==btn_logOut) {
+        btn_logOut.setOnAction(event -> {
             try {
                 Parent root1 = FXMLLoader.load(getClass().getResource("/sample/start/Page_start.fxml"));
                 Main.setscene(root1);
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        });
+        btn_orders.setOnAction(event -> {
+            try {
+                Parent root1 = FXMLLoader.load(getClass().getResource("/sample/admin/orders/Page_admin_orders.fxml"));
+                Main.setscene(root1);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        }
+        });
     }
+
+
+
+}
 

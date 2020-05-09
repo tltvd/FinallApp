@@ -19,8 +19,13 @@ public class Order implements Serializable {
     private String time;
     private int price;
     private String volume;
+    private String username;
 
 /*
+CREATED
+
+
+
 SELECT
 users.username AS "USERNAME",
 cars.model AS "MoDEL"
@@ -30,6 +35,13 @@ JOIN cars ON orders.id_car=cars.id_car
 WHERE books.author='Dan Brown';
  */
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public String getBrand() {
         return brand;

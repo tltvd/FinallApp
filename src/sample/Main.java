@@ -8,19 +8,17 @@ import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import sample.home.catalog.Page_catalog_controller;
+import sample.admin.orders.Page_admin_orders_controller;
+import sample.home.garage.Page_garage_controller;
 import sample.home.orders.Page_orders_controller;
-import sample.models.Order;
 import sample.models.PackageData;
-import sample.models.Car;
-import sample.models.User;
 import sample.home.catalog.Page_car_controller;
+import sample.signUp.Page_signUp_Controller;
 import sample.start.StartPage_Controller;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.util.ArrayList;
 
 
 public class Main extends Application {
@@ -28,32 +26,36 @@ public class Main extends Application {
     public static final int HEIGHT=700;
     public static Stage window;
 
+
     public static void connect(PackageData pd){
         try{
             Socket socket=new Socket("localhost",8888);
             ObjectOutputStream outputStream=new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream inputStream=new ObjectInputStream(socket.getInputStream());
 
+
             if(pd.getOperationType().equals("SIGN_UP")){
                 outputStream.writeObject(pd);
+            }
+            else if(pd.getOperationType().equals("LIST_GARAGE")){
+                outputStream.writeObject(pd);
+                PackageData infoFromServer=(PackageData)inputStream.readObject();
+                Page_garage_controller.orders= infoFromServer.getOrders();
             }
             else if(pd.getOperationType().equals("SHOW_CAR")){
                 outputStream.writeObject(pd);
                 PackageData infoFromServer=(PackageData)inputStream.readObject();
-                Car cars=infoFromServer.getCar();
-                Page_car_controller.car_catalog=cars;
+                Page_car_controller.car_catalog= infoFromServer.getCar();
             }
             else if(pd.getOperationType().equals("LIST_ORDER")){
                 outputStream.writeObject(pd);
                 PackageData infoFromServer=(PackageData)inputStream.readObject();
-                ArrayList<Order> ordersFromServer =infoFromServer.getOrders();
-                Page_orders_controller.orders=ordersFromServer;
+                Page_orders_controller.orders= infoFromServer.getOrders();
             }
             else if(pd.getOperationType().equals("SIGN_IN")){
                 outputStream.writeObject(pd);
                 PackageData infoFromServer=(PackageData)inputStream.readObject();
-                User user=infoFromServer.getUser();
-                StartPage_Controller.user=user;
+                StartPage_Controller.user= infoFromServer.getUser();
             }
             else if(pd.getOperationType().equals("UPDATE")){
                 outputStream.writeObject(pd);
@@ -62,6 +64,30 @@ public class Main extends Application {
             else if(pd.getOperationType().equals("BUY")){
                 outputStream.writeObject(pd);
             }
+            else if(pd.getOperationType().equals("LIST_ORDER_ADMIN")){
+                outputStream.writeObject(pd);
+                PackageData infoFromServer=(PackageData)inputStream.readObject();
+                Page_admin_orders_controller.orders= infoFromServer.getOrders();
+            }
+            else if(pd.getOperationType().equals("CHANGE_STATUS")){
+                outputStream.writeObject(pd);
+            }
+
+
+            else if(pd.getOperationType().equals("USERNAME_CHECK")){
+                outputStream.writeObject(pd);
+                PackageData infoFromServer=(PackageData)inputStream.readObject();
+
+                if(infoFromServer.getUser().getUsername().equals("isempty")){
+                    Page_signUp_Controller.checkUsername=true;
+                }
+                else {
+                    Page_signUp_Controller.checkUsername=false;
+                }
+            }
+
+
+
 
             inputStream.close();
             outputStream.close();

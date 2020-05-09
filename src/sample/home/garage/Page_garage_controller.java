@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,9 +21,13 @@ import javafx.stage.FileChooser;
 import sample.models.Car;
 import sample.DataBase.DatabaseHandler;
 import sample.Main;
+import sample.models.Order;
+import sample.models.PackageData;
+import sample.start.StartPage_Controller;
 
 public class Page_garage_controller {
 
+    public static ArrayList<Order> orders;
 
     @FXML
     private Button btn_back;
@@ -31,22 +36,24 @@ public class Page_garage_controller {
     private Button btn_save;
 
     @FXML
-    private TableView<Car> table_cars;
+    private TableView<Order> table_cars;
 
     @FXML
-    private TableColumn<Car, String> tableColumn_brand;
+    private TableColumn<Order, String> tableColumn_model;
 
     @FXML
-    private TableColumn<Car, String> tableColumn_model;
+    private TableColumn<Order, String> tableColumn_bodyType;
 
     @FXML
-    private TableColumn<Car, String> tableColumn_probeg;
-    private Connection con;
-    DatabaseHandler db;
+    private TableColumn<Order, String> tableColumn_year;
 
-    ObservableList<Car> list;
+    @FXML
+    private TableColumn<Order, String> tableColumn_hp;
 
+    @FXML
+    private TableColumn<Order, String> tableColumn_time;
 
+    private ObservableList<Order> list;
 
     @FXML
     void initialize() {
@@ -60,35 +67,20 @@ public class Page_garage_controller {
             }
 
         });
-        db=new DatabaseHandler();
+
+        PackageData dp = new PackageData("LIST_GARAGE", StartPage_Controller.user);
+        Main.connect(dp);
+        list=FXCollections.observableArrayList(orders);
         populateTableview();
     }
 
     private void populateTableview(){
-        try {
-            list= FXCollections.observableArrayList();
-            ResultSet rs=db.getCars();
-            while (rs.next()) {
-                Car car = new Car();
-                car.setBrand(rs.getString("brand"));
-                car.setModel(rs.getString("model"));
-                list.add(car);
-            }
-
-
-            tableColumn_model.setCellValueFactory(new PropertyValueFactory<>("model"));
-            tableColumn_brand.setCellValueFactory(new PropertyValueFactory<>("brand"));
-
-
-
-
-            table_cars.setItems(list);
-
-
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-
+        tableColumn_model.setCellValueFactory(new PropertyValueFactory<>("model"));
+        tableColumn_bodyType.setCellValueFactory(new PropertyValueFactory<>("body_type"));
+        tableColumn_hp.setCellValueFactory(new PropertyValueFactory<>("hp"));
+        tableColumn_time.setCellValueFactory(new PropertyValueFactory<>("time"));
+        tableColumn_year.setCellValueFactory(new PropertyValueFactory<>("year"));
+        table_cars.setItems(list);
     }
 
     public void Filesaver(ActionEvent event) {

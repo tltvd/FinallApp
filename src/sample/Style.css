@@ -12,6 +12,7 @@
     -fx-font-size: 20;
     -fx-font-family: "Nirmala UI";
     -fx-text-fill: white;
+
 }
 .button_menu:hover{
 
@@ -85,6 +86,7 @@
     -fx-background-radius: 10;
     -fx-border-width: 2;
     -fx-text-fill: white;
+    -fx-prompt-text-fill: white;
 }
 
 
@@ -122,35 +124,36 @@
     -fx-font-family: "Nirmala UI";
     -fx-alignment: center;
     -fx-text-fill: white;
-    -fx-font-size: 25;
+    -fx-font-size: 30;
+
 }
 
 .table-view .column-header {
     -fx-background-color: transparent;
+
 }
 
 
 
-.table-row-cell{
 
+.table-row-cell{
     -fx-font-family: "Nirmala UI";
     -fx-alignment: center;
     -fx-text-fill: white;
-    -fx-font-size: 15;
-    -fx-background-color: #202020;
+    -fx-font-size: 20;
+    -fx-background-color: #121212;
     -fx-table-cell-border-color: transparent;
-    -fx-cell-size: 130;
+    -fx-cell-size: 70;
+
 
 }
 
 
 .table-row-cell:selected {
     -fx-background-color: #343434;
-
 }
 .table-row-cell:hover {
-    -fx-background-color: #343434;
-
+    -fx-background-color: #787878;
 }
 
 

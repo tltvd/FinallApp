@@ -7,10 +7,16 @@ public class PackageData implements Serializable {
     private String operationType;
     private User user;
     private Car car;
+    private Order order;
     private ArrayList<Car> carsArray;
     private ArrayList<Order> ordersArray;
     private ArrayList<User> usersArray;
     private ArrayList<Order> orders;
+
+    public PackageData(String operationType, Order order) {
+        this.operationType = operationType;
+        this.order = order;
+    }
 
     public PackageData(ArrayList<Order> orders) {
         this.orders = orders;
@@ -39,6 +45,14 @@ public class PackageData implements Serializable {
         this.operationType = operationType;
     }
 
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
 
     public ArrayList<Order> getOrders() {
         return orders;

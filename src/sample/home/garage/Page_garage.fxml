@@ -18,9 +18,11 @@
       <Button fx:id="btn_save" layoutX="835.0" layoutY="14.0" mnemonicParsing="false" onAction="#Filesaver" prefHeight="40.0" prefWidth="150.0" text="Save in file" />
       <TableView fx:id="table_cars" layoutX="10.0" layoutY="110.0" prefHeight="600.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <columns>
-            <TableColumn fx:id="tableColumn_brand" editable="false" prefWidth="323.1999939084053" text="Brand" />
-            <TableColumn fx:id="tableColumn_model" editable="false" prefWidth="354.4000244140625" text="Model" />
-            <TableColumn fx:id="tableColumn_probeg" editable="false" prefWidth="327.99993896484375" text="Mileage" />
+            <TableColumn fx:id="tableColumn_model" editable="false" prefWidth="252.80005186796188" text="Model" />
+            <TableColumn fx:id="tableColumn_bodyType" editable="false" prefWidth="192.80003356933594" text="Body Type" />
+            <TableColumn fx:id="tableColumn_year" editable="false" prefWidth="126.39996337890625" text="Year" />
+            <TableColumn fx:id="tableColumn_hp" editable="false" minWidth="0.0" prefWidth="162.4000244140625" text="HP" />
+            <TableColumn fx:id="tableColumn_time" editable="false" prefWidth="262.4000244140625" text="0-100 KM/h Time" />
          </columns>
       </TableView>
    </children>

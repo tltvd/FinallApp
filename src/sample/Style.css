@@ -13,6 +13,23 @@
     -fx-font-family: "Nirmala UI";
     -fx-text-fill: white;
 }
+.button_menu:hover{
+
+    -fx-background-color: #FFC500;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+    -fx-text-fill: black;
+
+}
+.button_menu{
+    -fx-background-color: transparent ;
+    -fx-border-color: transparent;
+    -fx-font-size: 35;
+    -fx-pref-width: 560;
+    -fx-pref-height: 85;
+    -fx-font-family: "Nirmala UI";
+    -fx-text-fill: white;
+}
 .catalog{
     -fx-alignment: center;
     -fx-background-color: transparent ;

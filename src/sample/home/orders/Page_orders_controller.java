@@ -57,23 +57,34 @@ public class Page_orders_controller {
                 e.printStackTrace();
             }
         });
-        populateTableview();
+        //populateTableview();
         PackageData dp = new PackageData("LIST_ORDER", StartPage_Controller.user);
         Main.connect(dp);
-        list=FXCollections.observableArrayList(orders);
+        for (int i = 0; i < orders.size(); i++){
+            System.out.println(orders.get(i).getCar().getModel());
+            System.out.println(orders.get(i).getOrder_id());
+            System.out.println(orders.get(i).getStatus());
+            System.out.println(orders.get(i).getDate());
+        }
+        //list=FXCollections.observableArrayList(orders);
     }
 
     private void populateTableview() {
-
-
         for (int i = 0; i < list.size(); i++) {
             tableColumn_model.setCellValueFactory(new PropertyValueFactory<>(orders.get(i).getCar().getModel()));
             tableColumn_orderId.setCellValueFactory(new PropertyValueFactory<>(orders.get(i).getOrder_id()));
             tableColumn_status.setCellValueFactory(new PropertyValueFactory<>(orders.get(i).getStatus()));
             tableColumn_date.setCellValueFactory(new PropertyValueFactory<>(orders.get(i).getDate()));
         }
+        /*
+                for (int i = 0; i < list.size(); i++) {
+            tableColumn_model.setCellValueFactory(new PropertyValueFactory<>(orders.get(i).getCar().getModel()));
+            tableColumn_orderId.setCellValueFactory(new PropertyValueFactory<>(orders.get(i).getOrder_id()));
+            tableColumn_status.setCellValueFactory(new PropertyValueFactory<>(orders.get(i).getStatus()));
+            tableColumn_date.setCellValueFactory(new PropertyValueFactory<>(orders.get(i).getDate()));
+        }
+         */
         table_orders.setItems(list);
-
     }
 
 

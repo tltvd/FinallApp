@@ -84,9 +84,9 @@ public class ServerThread extends Thread{
                 }
                 else if(pd.getOperationType().equals("LIST_ORDER")){
                     ArrayList<Order> orders=new ArrayList<>();
-                    Order order=new Order();
                     ResultSet infoClient=db.getOrders(pd.getUser());
                     while(infoClient.next()){
+                        Order order=new Order();
                         order.setId_user(infoClient.getString(Const.CARS_MODEL));
                         order.setDate(infoClient.getString(Const.ORDERS_DATE));
                         order.setId_car(infoClient.getString(Const.ORDERS_ID_CAR));
@@ -106,8 +106,31 @@ public class ServerThread extends Thread{
                         car.setVolume(infoClient.getString(Const.CARS_VOLUME));
                         order.setCar(car);
                         orders.add(order);
-
                     }
+                    /*
+                                        while(infoClient.next()){
+                        order.setId_user(infoClient.getString(Const.CARS_MODEL));
+                        order.setDate(infoClient.getString(Const.ORDERS_DATE));
+                        order.setId_car(infoClient.getString(Const.ORDERS_ID_CAR));
+                        order.setStatus(infoClient.getString(Const.ORDERS_STATUS));
+                        Car car=new Car();
+                        car.setModel(infoClient.getString(Const.CARS_MODEL));
+                        car.setBrand(infoClient.getString(Const.CARS_BRAND));
+                        car.setBody_type(infoClient.getString(Const.CARS_BODY_TYPE));
+                        car.setDrive_type(infoClient.getString(Const.CARS_DRIVE_TYPE));
+                        car.setFuel(infoClient.getString(Const.CARS_FUEL));
+                        car.setFuel_type(infoClient.getString(Const.CARS_FUEL_TYPE));
+                        car.setPrice(infoClient.getInt(Const.CARS_PRICE));
+                        car.setHp(infoClient.getInt(Const.CARS_HP));
+                        car.setId_car(infoClient.getString(Const.CARS_ID));
+                        car.setYear(infoClient.getInt(Const.CARS_YEAR));
+                        car.setTime(infoClient.getString(Const.CARS_TIME));
+                        car.setVolume(infoClient.getString(Const.CARS_VOLUME));
+                        order.setCar(car);
+                        orders.add(order);
+                    }
+                     */
+
 
                     PackageData data=new PackageData(orders);
                     outputStream.writeObject(data);

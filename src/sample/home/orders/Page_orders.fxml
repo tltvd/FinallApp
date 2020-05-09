@@ -17,10 +17,11 @@
       </Label>
       <TableView fx:id="table_orders" layoutY="98.0" prefHeight="600.0" prefWidth="1000.0">
          <columns>
-            <TableColumn fx:id="tableColumn_orderId" editable="false" prefWidth="227.19997864961624" text="Order number" />
-            <TableColumn fx:id="tableColumn_model" editable="false" prefWidth="257.6000518798828" text="Model" />
-            <TableColumn fx:id="tableColumn_status" editable="false" prefWidth="263.99993896484375" text="Status" />
-            <TableColumn fx:id="tableColumn_date" editable="false" prefWidth="263.99993896484375" text="Order date" />
+            <TableColumn fx:id="tableColumn_orderId" editable="false" prefWidth="178.39999997615814" text="Order number" />
+            <TableColumn fx:id="tableColumn_model" editable="false" prefWidth="248.8000030517578" text="Model" />
+            <TableColumn fx:id="tableColumn_status" editable="false" prefWidth="226.4000244140625" text="Status" />
+            <TableColumn fx:id="tableColumn_date" editable="false" prefWidth="171.20001220703125" text="Order date" />
+            <TableColumn fx:id="tableColumn_sum" editable="false" prefWidth="196.0" text="Sum" />
          </columns>
       </TableView>
    </children>

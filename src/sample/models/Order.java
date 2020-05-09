@@ -3,13 +3,22 @@ package sample.models;
 import java.io.Serializable;
 
 public class Order implements Serializable {
-    private String order_id;
+    private String id_order;
     private String id_user;
     private String id_car;
     private String status;
     private String date;
-    private Car car;
-    private User user;
+    private String brand;
+    private String model;
+    private String body_type;
+    private int year;
+    private String drive_type;
+    private int hp;
+    private String fuel_type;
+    private String fuel;
+    private String time;
+    private int price;
+    private String volume;
 
 /*
 SELECT
@@ -22,22 +31,92 @@ WHERE books.author='Dan Brown';
  */
 
 
-
-
-    public Car getCar() {
-        return car;
+    public String getBrand() {
+        return brand;
     }
 
-    public void setCar(Car car) {
-        this.car = car;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
-    public User getUser() {
-        return user;
+    public String getModel() {
+        return model;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public String getBody_type() {
+        return body_type;
+    }
+
+    public void setBody_type(String body_type) {
+        this.body_type = body_type;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public String getDrive_type() {
+        return drive_type;
+    }
+
+    public void setDrive_type(String drive_type) {
+        this.drive_type = drive_type;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    public String getFuel_type() {
+        return fuel_type;
+    }
+
+    public void setFuel_type(String fuel_type) {
+        this.fuel_type = fuel_type;
+    }
+
+    public String getFuel() {
+        return fuel;
+    }
+
+    public void setFuel(String fuel) {
+        this.fuel = fuel;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public String getVolume() {
+        return volume;
+    }
+
+    public void setVolume(String volume) {
+        this.volume = volume;
     }
 
     public String getStatus() {
@@ -56,12 +135,12 @@ WHERE books.author='Dan Brown';
         this.date = date;
     }
 
-    public String getOrder_id() {
-        return order_id;
+    public String getId_order() {
+        return id_order;
     }
 
-    public void setOrder_id(String order_id) {
-        this.order_id = order_id;
+    public void setId_order(String id_order) {
+        this.id_order = id_order;
     }
 
     public String getId_user() {

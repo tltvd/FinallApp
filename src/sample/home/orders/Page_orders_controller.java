@@ -45,6 +45,9 @@ public class Page_orders_controller {
     @FXML
     private TableColumn<Order, String> tableColumn_date;
 
+    @FXML
+    private TableColumn<Order, Integer> tableColumn_sum;
+
     public static ObservableList<Order> list;
 
     @FXML
@@ -57,33 +60,24 @@ public class Page_orders_controller {
                 e.printStackTrace();
             }
         });
-        //populateTableview();
+
         PackageData dp = new PackageData("LIST_ORDER", StartPage_Controller.user);
         Main.connect(dp);
-        for (int i = 0; i < orders.size(); i++){
-            System.out.println(orders.get(i).getCar().getModel());
-            System.out.println(orders.get(i).getOrder_id());
-            System.out.println(orders.get(i).getStatus());
-            System.out.println(orders.get(i).getDate());
-        }
-        //list=FXCollections.observableArrayList(orders);
+
+        list=FXCollections.observableArrayList(orders);
+        populateTableview();
+
     }
 
     private void populateTableview() {
-        for (int i = 0; i < list.size(); i++) {
-            tableColumn_model.setCellValueFactory(new PropertyValueFactory<>(orders.get(i).getCar().getModel()));
-            tableColumn_orderId.setCellValueFactory(new PropertyValueFactory<>(orders.get(i).getOrder_id()));
-            tableColumn_status.setCellValueFactory(new PropertyValueFactory<>(orders.get(i).getStatus()));
-            tableColumn_date.setCellValueFactory(new PropertyValueFactory<>(orders.get(i).getDate()));
-        }
-        /*
-                for (int i = 0; i < list.size(); i++) {
-            tableColumn_model.setCellValueFactory(new PropertyValueFactory<>(orders.get(i).getCar().getModel()));
-            tableColumn_orderId.setCellValueFactory(new PropertyValueFactory<>(orders.get(i).getOrder_id()));
-            tableColumn_status.setCellValueFactory(new PropertyValueFactory<>(orders.get(i).getStatus()));
-            tableColumn_date.setCellValueFactory(new PropertyValueFactory<>(orders.get(i).getDate()));
-        }
-         */
+
+
+        tableColumn_model.setCellValueFactory(new PropertyValueFactory<>("model"));
+        tableColumn_status.setCellValueFactory(new PropertyValueFactory<>("status"));
+        tableColumn_date.setCellValueFactory(new PropertyValueFactory<>("date"));
+        tableColumn_orderId.setCellValueFactory(new PropertyValueFactory<>("id_order"));
+        tableColumn_sum.setCellValueFactory(new PropertyValueFactory<>("price"));
+
         table_orders.setItems(list);
     }
 

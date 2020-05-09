@@ -6,7 +6,6 @@ import sample.DataBase.DatabaseHandler;
 import sample.models.Order;
 import sample.models.PackageData;
 import sample.models.User;
-import sample.start.StartPage_Controller;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -87,24 +86,23 @@ public class ServerThread extends Thread{
                     ResultSet infoClient=db.getOrders(pd.getUser());
                     while(infoClient.next()){
                         Order order=new Order();
+                        order.setId_order(infoClient.getString(Const.ORDERS_ID_ORDER));
                         order.setId_user(infoClient.getString(Const.CARS_MODEL));
                         order.setDate(infoClient.getString(Const.ORDERS_DATE));
                         order.setId_car(infoClient.getString(Const.ORDERS_ID_CAR));
                         order.setStatus(infoClient.getString(Const.ORDERS_STATUS));
-                        Car car=new Car();
-                        car.setModel(infoClient.getString(Const.CARS_MODEL));
-                        car.setBrand(infoClient.getString(Const.CARS_BRAND));
-                        car.setBody_type(infoClient.getString(Const.CARS_BODY_TYPE));
-                        car.setDrive_type(infoClient.getString(Const.CARS_DRIVE_TYPE));
-                        car.setFuel(infoClient.getString(Const.CARS_FUEL));
-                        car.setFuel_type(infoClient.getString(Const.CARS_FUEL_TYPE));
-                        car.setPrice(infoClient.getInt(Const.CARS_PRICE));
-                        car.setHp(infoClient.getInt(Const.CARS_HP));
-                        car.setId_car(infoClient.getString(Const.CARS_ID));
-                        car.setYear(infoClient.getInt(Const.CARS_YEAR));
-                        car.setTime(infoClient.getString(Const.CARS_TIME));
-                        car.setVolume(infoClient.getString(Const.CARS_VOLUME));
-                        order.setCar(car);
+                        order.setModel(infoClient.getString(Const.CARS_MODEL));
+                        order.setBrand(infoClient.getString(Const.CARS_BRAND));
+                        order.setBody_type(infoClient.getString(Const.CARS_BODY_TYPE));
+                        order.setDrive_type(infoClient.getString(Const.CARS_DRIVE_TYPE));
+                        order.setFuel(infoClient.getString(Const.CARS_FUEL));
+                        order.setFuel_type(infoClient.getString(Const.CARS_FUEL_TYPE));
+                        order.setPrice(infoClient.getInt(Const.CARS_PRICE));
+                        order.setHp(infoClient.getInt(Const.CARS_HP));
+                        order.setId_car(infoClient.getString(Const.CARS_ID));
+                        order.setYear(infoClient.getInt(Const.CARS_YEAR));
+                        order.setTime(infoClient.getString(Const.CARS_TIME));
+                        order.setVolume(infoClient.getString(Const.CARS_VOLUME));
                         orders.add(order);
                     }
                     /*

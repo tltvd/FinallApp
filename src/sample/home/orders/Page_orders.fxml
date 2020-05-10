@@ -17,11 +17,11 @@
       </Label>
       <TableView fx:id="table_orders" layoutY="98.0" prefHeight="600.0" prefWidth="1000.0">
          <columns>
-            <TableColumn fx:id="tableColumn_orderId" editable="false" prefWidth="142.3999908566475" text="Order ID" />
-            <TableColumn fx:id="tableColumn_model" editable="false" prefWidth="248.00001525878906" text="Model" />
-            <TableColumn fx:id="tableColumn_status" editable="false" prefWidth="136.79998779296875" text="Status" />
-            <TableColumn fx:id="tableColumn_date" editable="false" prefWidth="281.60003662109375" text="Order date" />
-            <TableColumn fx:id="tableColumn_sum" editable="false" prefWidth="197.59991455078125" text="Order Sum" />
+            <TableColumn fx:id="tableColumn_orderId" editable="false" prefWidth="78.40002745389938" text="ID" />
+            <TableColumn fx:id="tableColumn_model" editable="false" minWidth="215.0" prefWidth="256.0" text="Model" />
+            <TableColumn fx:id="tableColumn_status" editable="false" minWidth="220.0" prefWidth="295.20001220703125" text="Status" />
+            <TableColumn fx:id="tableColumn_date" editable="false" prefWidth="222.4000244140625" text="Order date" />
+            <TableColumn fx:id="tableColumn_sum" editable="false" prefWidth="258.4000244140625" text="Order Sum" />
          </columns>
       </TableView>
    </children>

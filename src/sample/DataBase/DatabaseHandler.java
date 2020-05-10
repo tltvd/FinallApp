@@ -15,7 +15,7 @@ import java.util.Date;
 
 public class DatabaseHandler extends Configs {
     Connection dbConnection;
-    private static final DateFormat sdf=new SimpleDateFormat("dd/MM/yyyy HH:mm");
+    private static final DateFormat sdf=new SimpleDateFormat("dd.MM.yyyy HH:mm");
     public Connection getDbConnection()throws SQLException,ClassNotFoundException{
         String connectionString= "jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?useUnicode=true&serverTimezone=UTC&useSSL=true&verifyServerCertificate=false";
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -40,8 +40,21 @@ public class DatabaseHandler extends Configs {
     }
     public void Delete(User user){
         try {
-            String str="DELETE "+Const.USER_TABLE+" WHERE "+Const.USER_TABLE+"."+Const.USERS_ID+" = "+user.getId_user();
+            String str="DELETE FROM "+Const.USER_TABLE+" WHERE "+Const.USER_TABLE+"."+Const.USERS_ID+"="+user.getId_user();
             PreparedStatement prSt = getDbConnection().prepareStatement(str);
+            prSt.executeUpdate();
+            prSt.close();
+
+        }catch (SQLException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
+
+    }
+    public void Delete(Order order){
+        try {
+            String str1="DELETE FROM orders WHERE orders.id_order ="+order.getId_order();
+            String str="DELETE "+Const.ORDERS_TABLE+" WHERE "+Const.ORDERS_TABLE+"."+Const.ORDERS_ID_ORDER+" = \""+order.getId_order()+" \"";
+            PreparedStatement prSt = getDbConnection().prepareStatement(str1);
             prSt.executeUpdate();
             prSt.close();
 
@@ -52,8 +65,10 @@ public class DatabaseHandler extends Configs {
     }
     public void update(Order order){
         try {
-            String str="UPDATE "+Const.ORDERS_TABLE+" SET "+Const.ORDERS_STATUS+"="+order.getStatus()+" WHERE "+Const.ORDERS_TABLE+"."+Const.ORDERS_ID_ORDER+" = "+order.getId_order();
-            PreparedStatement prSt = getDbConnection().prepareStatement(str);
+            String s="UPDATE orders SET status = 'NEW' WHERE `orders`.`id_order` = 24;";
+            String str1="UPDATE orders SET status = \""+order.getStatus()+"\" WHERE orders.id_order ="+order.getId_order();
+            String str="UPDATE "+Const.ORDERS_TABLE+" SET ."+Const.ORDERS_STATUS+"= \""+order.getStatus()+"\" WHERE "+Const.ORDERS_TABLE+"."+Const.ORDERS_ID_ORDER+" = "+order.getId_order();
+            PreparedStatement prSt = getDbConnection().prepareStatement(str1);
             prSt.executeUpdate();
             prSt.close();
 
@@ -66,7 +81,7 @@ public class DatabaseHandler extends Configs {
         String insert= "INSERT INTO "+Const.ORDERS_TABLE+"("+Const.ORDERS_ID_USER+","+Const.ORDERS_ID_CAR+","+Const.ORDERS_STATUS+","+Const.ORDERS_DATE+") VALUES(?,?,?,?)";
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);
-            String s="CREATED";
+            String s="NEW";
             Date date=new Date();
             prSt.setString(1, user.getId_user());
             prSt.setString(2, car.getId_car());
@@ -128,7 +143,7 @@ public class DatabaseHandler extends Configs {
     }
     public ResultSet getGarage(User user){
         ResultSet resSet=null;
-        String str="SELECT * FROM orders JOIN users ON orders.id_user=users.id_user JOIN cars ON orders.id_car=cars.id_car WHERE orders.id_user ="+user.getId_user()+" AND orders.status=\"complete\"";
+        String str="SELECT * FROM orders JOIN users ON orders.id_user=users.id_user JOIN cars ON orders.id_car=cars.id_car WHERE orders.id_user ="+user.getId_user()+" AND orders.status=\"COMPLETED\"";
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(str);
             resSet=prSt.executeQuery();
@@ -146,6 +161,17 @@ public class DatabaseHandler extends Configs {
             prSt.setString(2, user.getPassword());
 
 
+            resSet=prSt.executeQuery();
+        }catch (SQLException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
+        return resSet;
+    }
+    public ResultSet getAllusers(){
+        ResultSet resSet=null;
+        String str = "SELECT * FROM " + Const.USER_TABLE;
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(str);
             resSet=prSt.executeQuery();
         }catch (SQLException | ClassNotFoundException e){
             e.printStackTrace();

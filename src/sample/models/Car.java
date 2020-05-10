@@ -16,10 +16,10 @@ public class Car implements Serializable {
     private String time;
     private int price;
     private String volume;
-    private Blob image;
+
 
     public Car() {}
-    public Car(String id_car, String brand, String model, String body_type, int year, String drive_type, int hp, String fuel_type, String fuel, String time, int price, String volume, Blob image) {
+    public Car(String id_car, String brand, String model, String body_type, int year, String drive_type, int hp, String fuel_type, String fuel, String time, int price, String volume) {
         this.id_car = id_car;
         this.brand = brand;
         this.model = model;
@@ -32,17 +32,11 @@ public class Car implements Serializable {
         this.time = time;
         this.price = price;
         this.volume = volume;
-        this.image=image;
+
     }
 
 
-    public Blob getImage() {
-        return image;
-    }
 
-    public void setImage(Blob image) {
-        this.image = image;
-    }
 
     public String getId_car() {
         return id_car;

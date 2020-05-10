@@ -32,8 +32,6 @@ public class Page_garage_controller {
     @FXML
     private Button btn_back;
 
-    @FXML
-    private Button btn_save;
 
     @FXML
     private TableView<Order> table_cars;
@@ -83,16 +81,4 @@ public class Page_garage_controller {
         table_cars.setItems(list);
     }
 
-    public void Filesaver(ActionEvent event) {
-        FileChooser fileChooser = new FileChooser();//Класс работы с диалогом выборки и сохранения
-        fileChooser.setTitle("Save Document");//Заголовок диалога
-        FileChooser.ExtensionFilter extFilter =
-                new FileChooser.ExtensionFilter("HTML files (*.html)", "*.html");//Расширение
-        fileChooser.getExtensionFilters().add(extFilter);
-        File file = fileChooser.showSaveDialog(Main.window);//Указываем текущую сцену CodeNote.mainStage
-        if (file != null) {
-            //Save
-            System.out.println("Процесс открытия файла");
-        }
-    }
 }

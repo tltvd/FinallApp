@@ -7,10 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import sample.Main;
@@ -57,8 +54,6 @@ public class Page_admin_orders_controller {
     @FXML
     private Button btn_delete;
 
-    @FXML
-    private Button btn_cancel;
 
     public static ObservableList<Order> list;
     public static ObservableList<String> combo;
@@ -100,24 +95,34 @@ public class Page_admin_orders_controller {
                 onEdit();
             }
         });
-        /*
-                btn_edit.setOnAction(event->{
-            Order selectedItem = table_orders.getSelectionModel().getSelectedItem();
-            order_status.setValue(selectedItem.getId_order());
-
-            Order statusOrder=new Order();
-
-            statusOrder.setStatus(order_status.getSelectionModel().toString());
-            PackageData packageData = new PackageData("CHANGE_STATUS",statusOrder);
-            Main.connect(packageData);
-        });
-         */
         btn_edit.setOnAction(event->{
+            try {
             Order selectedItem = table_orders.getSelectionModel().getSelectedItem();
             selectedItem.setStatus(order_status.getSelectionModel().getSelectedItem());
-            System.out.println("order id:"+selectedItem.getId_order()+" status:"+selectedItem.getStatus()+" "+selectedItem.getModel());
+            if(selectedItem.getStatus().equals("null")){
+                selectedItem.setStatus(table_orders.getSelectionModel().getSelectedItem().getStatus());
+            }
             PackageData packageData = new PackageData("CHANGE_STATUS",selectedItem);
             Main.connect(packageData);
+            Parent root1 = FXMLLoader.load(getClass().getResource("/sample/admin/orders/Page_admin_orders.fxml"));
+            Main.setscene(root1);
+            } catch (IOException ignored) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("");
+                alert.setHeaderText("Please, select the cat to change status!");
+            }
+        });
+        btn_delete.setOnAction(event->{
+            Order selectedItem = table_orders.getSelectionModel().getSelectedItem();
+            PackageData packageData = new PackageData("DELETE_ORDER",selectedItem);
+            Main.connect(packageData);
+            try {
+                Parent root1 = FXMLLoader.load(getClass().getResource("/sample/admin/orders/Page_admin_orders.fxml"));
+                Main.setscene(root1);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         });
     }
 

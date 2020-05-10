@@ -75,7 +75,6 @@ public class ServerThread extends Thread{
                         }
                         PackageData data = new PackageData(user);
                         outputStream.writeObject(data);
-                        System.out.println("----------THE USER HAS LOGGED IN----------");
                     }
                     else if (pd.getOperationType().equals("BUY")) {
                         User user = pd.getUser();
@@ -137,14 +136,36 @@ public class ServerThread extends Thread{
                         PackageData data = new PackageData(orders);
                         outputStream.writeObject(data);
                     }
+                    else if (pd.getOperationType().equals("LIST_USERS_ADMIN")) {
+                        ArrayList<User> users = new ArrayList<>();
+                        ResultSet infoClient = db.getAllusers();
+                        while (infoClient.next()) {
+                            User user=new User();
+                            user.setId_user(infoClient.getString(Const.USERS_ID));
+                            user.setUsername(infoClient.getString(Const.USERS_USERNAME));
+                            user.setPassword(infoClient.getString(Const.USERS_PASSWORD));
+                            user.setFirstname(infoClient.getString(Const.USERS_FIRSTNAME));
+                            user.setLastname(infoClient.getString(Const.USERS_LASTNAME));
+                            user.setCity(infoClient.getString(Const.USERS_CITY));
+                            user.setPhone(infoClient.getString(Const.USERS_PHONE));
+                            user.setEmail(infoClient.getString(Const.USERS_EMAIL));
+                            user.setGender(infoClient.getString(Const.USERS_GENDER));
+                            user.setRole(infoClient.getString(Const.USERS_ROLE));
+                            users.add(user);
+                        }
+                        String s="";
+                        PackageData data = new PackageData(users,s);
+                        outputStream.writeObject(data);
+                    }
                     else if (pd.getOperationType().equals("LIST_ORDER_ADMIN")) {
                         ArrayList<Order> orders = new ArrayList<>();
                         ResultSet infoClient = db.getOrders();
                         while (infoClient.next()) {
                             Order order = new Order();
                             order.setId_order(infoClient.getString(Const.ORDERS_ID_ORDER));
-                            order.setId_user(infoClient.getString(Const.CARS_MODEL));
+                            order.setId_user(infoClient.getString(Const.ORDERS_ID_USER));
                             order.setDate(infoClient.getString(Const.ORDERS_DATE));
+                            order.setUsername(infoClient.getString(Const.USERS_USERNAME));
                             order.setId_car(infoClient.getString(Const.ORDERS_ID_CAR));
                             order.setStatus(infoClient.getString(Const.ORDERS_STATUS));
                             order.setModel(infoClient.getString(Const.CARS_MODEL));
@@ -168,6 +189,16 @@ public class ServerThread extends Thread{
                         Order orderFromClient= pd.getOrder();
                         db.update(orderFromClient);
                     }
+                    else if (pd.getOperationType().equals("DELETE_ORDER")) {
+                        Order orderFromClient= pd.getOrder();
+                        db.Delete(orderFromClient);
+                    }
+                    else if (pd.getOperationType().equals("DELETE_USER")) {
+                        User userFromClient= pd.getUser();
+                        db.Delete(userFromClient);
+                    }
+
+
 
 
 

@@ -23,9 +23,6 @@ public class Page_admin_controller {
     private Button btn_orders;
 
     @FXML
-    private Button bt_cars;
-
-    @FXML
     private Button btn_users;
 
     @FXML
@@ -44,6 +41,14 @@ public class Page_admin_controller {
         btn_orders.setOnAction(event -> {
             try {
                 Parent root1 = FXMLLoader.load(getClass().getResource("/sample/admin/orders/Page_admin_orders.fxml"));
+                Main.setscene(root1);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        btn_users.setOnAction(event->{
+            try {
+                Parent root1 = FXMLLoader.load(getClass().getResource("/sample/admin/users/Page_admin_users.fxml"));
                 Main.setscene(root1);
             } catch (IOException e) {
                 e.printStackTrace();

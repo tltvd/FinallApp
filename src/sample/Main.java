@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import sample.admin.orders.Page_admin_orders_controller;
+import sample.admin.users.Page_admin_users_controller;
 import sample.home.garage.Page_garage_controller;
 import sample.home.orders.Page_orders_controller;
 import sample.models.PackageData;
@@ -72,6 +73,19 @@ public class Main extends Application {
             else if(pd.getOperationType().equals("CHANGE_STATUS")){
                 outputStream.writeObject(pd);
             }
+            else if(pd.getOperationType().equals("DELETE_ORDER")){
+                outputStream.writeObject(pd);
+            }
+            else if(pd.getOperationType().equals("LIST_USERS_ADMIN")){
+                outputStream.writeObject(pd);
+                PackageData infoFromServer=(PackageData)inputStream.readObject();
+                Page_admin_users_controller.users= infoFromServer.getUsersArray();
+            }
+            else if(pd.getOperationType().equals("DELETE_USER")){
+                outputStream.writeObject(pd);
+            }
+
+
 
 
             else if(pd.getOperationType().equals("USERNAME_CHECK")){

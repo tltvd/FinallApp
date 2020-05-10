@@ -15,7 +15,6 @@
             <Font name="Serif Bold" size="40.0" />
          </font>
       </Label>
-      <Button fx:id="btn_save" layoutX="835.0" layoutY="14.0" mnemonicParsing="false" onAction="#Filesaver" prefHeight="40.0" prefWidth="150.0" text="Save in file" />
       <TableView fx:id="table_cars" layoutX="10.0" layoutY="110.0" prefHeight="600.0" prefWidth="1000.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <columns>
             <TableColumn fx:id="tableColumn_model" editable="false" prefWidth="252.80005186796188" text="Model" />

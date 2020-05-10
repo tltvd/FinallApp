@@ -1,12 +1,15 @@
 package sample.home.catalog;
 import java.io.*;
 import java.sql.SQLException;
+import java.util.Optional;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
@@ -107,12 +110,26 @@ public class Page_car_controller {
 
 
         btn_buy.setOnAction(actionEvent -> {
-            PackageData pd=new PackageData("BUY", StartPage_Controller.user , car_catalog);
-            Main.connect(pd);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Car buying");
-            alert.setHeaderText("Order has been");
-            alert.showAndWait();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Car purchase");
+            alert.setHeaderText("Are you sure you want to buy a car?");
+            Optional<ButtonType> res= alert.showAndWait();
+            if(res.get()==ButtonType.OK){
+                PackageData pd=new PackageData("BUY", StartPage_Controller.user , car_catalog);
+                Main.connect(pd);
+                Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+                alert1.setTitle("Car buying");
+                alert1.setHeaderText("The purchase was completed successfully and the manager will contact you soon!");
+                alert1.showAndWait();
+                try {
+                    Parent root1 = FXMLLoader.load(getClass().getResource("/sample/home/orders/Page_orders.fxml"));
+                    Main.setscene(root1);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
         });
     }
 }

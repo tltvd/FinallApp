@@ -86,7 +86,14 @@
     -fx-background-radius: 10;
     -fx-border-width: 2;
     -fx-text-fill: white;
-    -fx-prompt-text-fill: white;
+}
+.combo-boxADMIN{
+    -fx-border-color: #ffffff;
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-border-width: 2;
+    -fx-text-fill: #000000;
 }
 
 
@@ -124,7 +131,7 @@
     -fx-font-family: "Nirmala UI";
     -fx-alignment: center;
     -fx-text-fill: white;
-    -fx-font-size: 30;
+    -fx-font-size: 28;
 
 }
 
